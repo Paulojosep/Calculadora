@@ -1,0 +1,163 @@
+(setf historico (make-array '(20)))
+(setq cont 0)
+
+(defun tangente (num)
+(/(sin num)(cos num))
+	)
+
+
+(defun Exponencial (base expo)
+	(if (= expo 0)
+		1
+		(* base ( Exponencial base (- expo 1)))
+	)
+)
+
+(defun fatorial (num)
+	(if (= num 0)
+		1
+		(* num (fatorial (- num 1)))
+	)
+)
+
+(defun menu (&optional (x 1))
+(format t "--- Menu ---
+0- Sair
+1- Imprimir Historico
+2- Soma: (soma x y) 
+3- Subtracao (sub x y)
+4- Multiplicacao (mult x y)
+5- Divisao (div x y)
+6- Modulo (mod x y)
+7- Seno (seno x)
+8- Cosseno (cosseno x)
+9- Tangente (tangente x)
+10- Raiz (raiz x)
+11- Exponente ao quadrado (exponencial2 x)
+12-	Expoente ao cubo: (exponencial3 x)
+13-	Exponencial: (exponencial x y)
+14-	Logaritmo: (logaritmo x y)
+15-	Fatorial: (fatorial x)~%
+Digite sua opcao: ") (setq op (read))
+(format t "----------------------------~%")
+
+(case op
+((0) (histo))
+
+((1) (histo)(menu))
+
+((2)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq soma(+ x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" soma) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((3)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq sub(- x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" sub) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((4)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq mult(* x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" mult) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((5)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq div(/ x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" div) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((6)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq modulo(mod x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" modulo) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((7)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq seno(sin x )))
+      (setq res (LIST "X:" x "Result:" seno) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((8)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq cose(cos x )))
+      (setq res (LIST "X:" x "Result:" cose) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((9)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq tang(tangente x )))
+      (setq res (LIST "X:" x "Result:" tang) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((10)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq raiz(sqrt x )))
+      (setq res (LIST "X:" x "Result:" raiz) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((11) (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq quad(* x x )))
+      (setq res (LIST "X:" x "Result:" quad) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((12) (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq cub(* x x x )))
+      (setq res (LIST "X:" x "Result:" cub) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((13)  (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq result(exponencial x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" result) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((14) (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Digite o Valor de Y: ")(setq y (read))
+      (format t "Resultado: ~S"(setq result(log x y)))
+      (setq res (LIST "X:" x "Y:" y "Result:" result) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+
+((15) (format t "Digite o Valor de X: ")(setq x (read))
+      (format t "Resultado: ~S"(setq result(fatorial x)))
+      (setq res (LIST "X:" x "Result:" result) )
+      (setf (aref historico cont) res)
+      (setq cont (+ cont 1))
+      (histo) (menu))
+)
+
+)
+
+(defun histo (&optional (x 1))
+(format t "~%~%Historico:~%--------------------------")
+(print historico)
+(format t "~%--------------------------~%~%")
+)
+
+(menu)
